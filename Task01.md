@@ -2,6 +2,42 @@
 
 **练习题**：
 
+leetcode 习题 136. 只出现一次的数字
+
+给定一个**非空**整数数组，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。
+
+尝试使用位运算解决此题。
+
+```python
+"""
+Input file
+example1: [2,2,1]
+example2: [4,1,2,1,2]
+
+Output file
+result1: 1
+result2: 4
+"""
+
+class Solution:
+    def singleNumber(self, nums: List[int]) -> int:
+        for i = 0,n
+        for j = i+1,n
+        if List[i]^List[j]!=0 && j<=n
+           j=j+1
+            if j=n print List[i] end
+            else
+            i=i+1, j=0
+            end
+            end
+            
+     # your code here
+```
+
+
+
+**练习题**：
+
 1. 怎样对python中的代码进行注释？
 
    单行注释：`#` 。
@@ -119,12 +155,12 @@
 
    <b>其他运算符</b>
 
-   |  操作符  |  名称  |             示例             |
-   | :------: | :----: | :--------------------------: |
-   |   `in`   |  存在  |   `'A' in ['A', 'B', 'C']`   |
-   | `not in` | 不存在 | `'h' not in ['A', 'B', 'C']` |
-   |   `is`   |   是   |     `"hello" is "hello"`     |
-   | `is not` |  不是  |   `"hello" is not "hello"`   |
+|  操作符  |  名称  |             示例             |
+| :------: | :----: | :--------------------------: |
+|   `in`   |  存在  |   `'A' in ['A', 'B', 'C']`   |
+| `not in` | 不存在 | `'h' not in ['A', 'B', 'C']` |
+|   `is`   |   是   |     `"hello" is "hello"`     |
+| `is not` |  不是  |   `"hello" is not "hello"`   |
 
 
    【例子】
