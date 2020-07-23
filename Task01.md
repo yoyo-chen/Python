@@ -21,17 +21,13 @@ result2: 4
 
 class Solution:
     def singleNumber(self, nums: List[int]) -> int:
-        for i = 0,n
-        for j = i+1,n
-        if List[i]^List[j]!=0 && j<=n
-           j=j+1
-            if j=n print List[i] end
-            else
-            i=i+1, j=0
-            end
-            end
             
      # your code here
+    
+        x=0
+        for num in nums:
+            x=x^num
+        return x
 ```
 
 
