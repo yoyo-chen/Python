@@ -573,6 +573,21 @@ for i in range(len(lst)):
     if type(lst[i])==int or type(lst[i])==float:
         lst[i]=lst[i]*2
 print(lst)
+
+#参考答案
+def double_list(lst):
+    for index, item in enumerate(lst):
+        if isinstance(item, bool):
+            continue
+        if isinstance(item, (int, float)):
+            lst[index]*=2
+        if isinstance(item, list):
+            double_list(item)
+            
+if __name__=='__main__':
+    lst = [1, [4, 6], True]
+    double_list(lst)
+    print(lst)
 ```
 
 
@@ -622,6 +637,40 @@ class Solution:
             print("False")
         return
 ```
+
+```python
+# 参考答案
+ def is_mountain_lst(lst):
+        if len(lst) < 3:
+            return False
+        
+        index = 0
+        while index < len(lst)-1:
+            if lst[index] < lst[index+1]:
+                index += 1
+            else:
+                break
+        
+        if index == 0 or index == len(lst)-1:
+            return False
+        
+        while index < len(lst)-1:
+            if lst[index] > lst[index+1]:
+                index += 1
+            else:
+                return False
+        
+        return True
+
+if __name__=='__main__'
+    print is_mountain_lst([1, 2])
+    print is_mountain_lst([1, 2, 3])
+    print is_mountain_lst([1, 3, 4, 5, 3])
+    print is_mountain_lst([1, 2, 4, 6, 4, 5])
+                    
+```
+
+
 
    
 
@@ -825,7 +874,7 @@ print(a, b)  # 1 2
 
 解压（unpack）一维元组
 
-
+【参考答案】拆包就是将一个对象拆为多个对象，拆包实际上可以应用到任何可迭代对象上，唯一的硬性要求是，被可迭代对象中的元素数量必须要跟接受这些元素的元组的空档数一致。
 
 2.2 下述过程属于拆包吗？
 
@@ -835,11 +884,28 @@ a, b = 1, 2
 
 不属于，这是赋值。
 
-
+【参考答案】属于
 
 2.3 可迭代对象拆包时，怎么赋值给占位符？
 
 看不懂问题。
+
+【参考答案】
+
+我们经常⽤ for 循环提取元组⾥的元素，对于我们不想接收的元素，我们可以⽤占位符 _ 接收。
+
+```python
+player_infos = [('Kobe', '24'), ('James', '23'), ('Iverson','3')]
+for player_names, _ in player_infos:
+print(player_names)
+'''
+Kobe
+James
+Iverson
+'''
+```
+
+
 
 
 
@@ -1306,6 +1372,34 @@ def isdigit(string):
     pass
 ```
 
+思路分析
+a. 遍历字符串，对每个字符做检查，如果都是0到9的某个数值，那么函数返回True，只要有一个不是0到9，就返回False。
+b. 如何确定一个字符是不是0到9中的某一个呢，方法很多，你可以用if条件判断语句判断字符是否在列表['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']中，也可以像我下面示例代码一样，使用ord函数获得字符的ASCII编码对应的10进制数值，接着判断是否在48到57之间。
+
+```python
+def isdigit(string):
+	"""
+	判断字符串只包含数字
+	:param string:
+	:return:
+	"""
+	if not string:
+		return False
+    
+	for item in string:
+		if not (48 <= ord(item) <= 57):
+		return False
+    
+	return True
+
+if __name__ == '__main__':
+	print(isdigit('232'))
+	print(isdigit('232r'))
+	print(isdigit(''))
+```
+
+
+
 3、leetcode 5题 最长回文子串
 
 给定一个字符串 `s`，找到 `s` 中最长的回文子串。你可以假设 `s` 的最大长度为 1000。
@@ -1327,4 +1421,5 @@ class Solution:
     # your code here
 ```
 
-   
+[参考答案](https://leetcode-cn.com/problems/longest-palindromic-substring/solution/zhong-xin-kuo-san-dong-tai-gui-hua-by-liweiwei1419/)   
+
